@@ -1,0 +1,9 @@
+pip>=19.1
+colorama
+opencv-python
+Pillow
+selenium
+openpyxl
+browsermob-proxy
+cx-Oracle
+pymysql

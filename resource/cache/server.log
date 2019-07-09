@@ -1,0 +1,45 @@
+Running BrowserMob Proxy using LittleProxy implementation. To revert to the legacy implementation, run the proxy with the command-line option '--use-littleproxy false'.
+[INFO  2019-05-16T09:12:47,843 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
+[INFO  2019-05-16T09:12:47,884 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
+[INFO  2019-05-16T09:12:48,654 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
+[INFO  2019-05-16T09:12:48,833 org.eclipse.jetty.util.log] (main) Started SelectChannelConnector@0.0.0.0:3310 
+[INFO  2019-05-16T09:12:50,831 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp664186542-21) Starting proxy at address: 0.0.0.0/0.0.0.0:8081 
+[INFO  2019-05-16T09:12:50,867 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp664186542-21) Proxy listening with TCP transport 
+[INFO  2019-05-16T09:12:52,446 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp664186542-21) Proxy started at address: /0:0:0:0:0:0:0:0:8081 
+[WARN  2019-05-16T09:12:57,439 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-5) No content type specified in response from http://localhost:8077/tpms/j_spring_security_check. Content will be treated as application/octet-stream 
+[INFO  2019-05-16T09:13:15,591 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-1) (CONNECTING) [id: 0x50af0c15]: Connection to upstream server failed io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection timed out: no further information: accounts.google.com/172.217.160.77:443
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[?:1.8.0_192]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717) ~[?:1.8.0_192]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:346) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:639) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_192]
+
+[INFO  2019-05-16T09:13:26,500 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-1) (CONNECTING) [id: 0x7b6ad7d1]: Connection to upstream server failed io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection timed out: no further information: chrome-devtools-frontend.appspot.com/66.220.155.14:443
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[?:1.8.0_192]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717) ~[?:1.8.0_192]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:346) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:639) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_192]
+
+[INFO  2019-05-16T09:13:37,521 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-2) (CONNECTING) [id: 0x7888d9fe]: Connection to upstream server failed io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection timed out: no further information: accounts.google.com/172.217.160.77:443
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[?:1.8.0_192]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717) ~[?:1.8.0_192]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:346) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:639) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_192]
+
