@@ -36,7 +36,6 @@ class HttpHelper:
         :param request_options:     请求头文件选项
         :param verification_function: 用户自定义请求头文件方法
         :param all_info:            数据全返回{content:data,status:状态 }
-
         :return:
         """
         assert isinstance(send_data, (str, dict)), "请传入正确类型"
