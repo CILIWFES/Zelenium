@@ -8,3 +8,6 @@ browsermob-proxy
 cx-Oracle
 pymysql
 pytesseract
+mxnet-cpu
+numpy
+matplotlib

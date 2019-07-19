@@ -108,5 +108,11 @@ class GlobalConstant:
     # 文件队列最大长度
     FILE_QUEUE_SIZE = "FILE_QUEUE_SIZE"
 
+    # -------------------------神经网络配置--------------------
+    # 验证码识别module路径
+    DISCERN_PATH = "DISCERN_PATH"
+    # 神经网络基础路径
+    ANN_PATH = "ANN_PATH"
+
 
 GT = GlobalConstant()

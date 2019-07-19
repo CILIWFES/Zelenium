@@ -159,6 +159,14 @@ class GlobalConfiguration:
         """
         return float(self.getConfig(GT.REPORT_EXECUTE_INTERVAL))
 
+    def getAnnDiscernPath(self, name):
+        """
+        获取验证码识别文件夹
+        :param name:
+        :return:
+        """
+        return self.getFilsPath([GT.ANN_PATH, GT.DISCERN_PATH])+name+"/"
+
     def create_report(self, style_no):
         """
         判断是否创建测试报告

@@ -3,6 +3,7 @@ from .CaptureRunner import CaptureRunner
 from PIL import Image
 from io import BytesIO
 from src.code.tools import *
+import base64
 import time
 
 
@@ -35,6 +36,19 @@ class CaptureHelper:
         image = self.get_portion_image(node)
         image.show(GF.getCachePath() + str(int(time.clock())))
         return True
+
+    def get_portion_image_base64(self, node):
+        """
+        获取base64图片
+        :param node:
+        :return:
+        """
+        img = self.get_portion_image(node).convert('RGB')
+        output_buffer = BytesIO()
+        img.save(output_buffer, format='JPEG')
+        byte_data = output_buffer.getvalue()
+        base64_str = base64.b64encode(byte_data)
+        return base64_str
 
     def get_portion_image(self, node):
         """
