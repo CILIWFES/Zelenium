@@ -56,7 +56,7 @@ class AnnTools:
         :param cpuType:
         :return:
         """
-        print("加载神经网络,首次加载费时较长,请耐心等待")
+        print("加载神经网络,首次加载用时较长,请耐心等待")
         import mxnet as mx
         # 判断硬件类型
         processor = mx.cpu() if (cpuType) else mx.gpu()
