@@ -84,7 +84,7 @@ class HttpHelper:
                        globalVariable={status:xhr.status,content:xhr.responseText,error:false};
                    }
                    else{
-                       globalVariable={status:xhr.status,error:True};
+                       globalVariable={status:xhr.status,error:true};
                    }
                 }
             };

@@ -7,7 +7,6 @@ openpyxl
 browsermob-proxy
 cx-Oracle
 pymysql
-pytesseract
-mxnet-cpu
+mxnet
 numpy
 matplotlib

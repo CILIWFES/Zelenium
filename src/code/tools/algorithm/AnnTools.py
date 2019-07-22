@@ -1,4 +1,4 @@
-from config import *
+from src.code.config import *
 import numpy as np
 
 
@@ -16,12 +16,13 @@ class AnnTools:
         gray = image_tools.base64_to_gray(base64_code)
         gray = image_tools.binarization(gray, 130)
         gray = image_tools.noise_remove(gray, 4)
+        image_tools.show_Grayscale(gray)
 
         return self.discern_code(gray, 4, hight=40, width=100, model_name="mp4")
 
     def discern_code(self, gray, codeNum, hight, width, model_name):
         """
-        二维码调用神经网络
+        验证码调用神经网络
         :param gray: 灰度图片
         :param codeNum: 识别字数
         :param hight: 图片标志高度

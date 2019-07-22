@@ -12,8 +12,14 @@ class ExcelTools:
         self._sheetIndex = 0
         self.reload(name, sheetDefault)
 
-    # 重载excel
+
     def reload(self, name, sheetIndex=0):
+        """
+        重新加载excel
+        :param name:
+        :param sheetIndex:
+        :return:
+        """
         self.name = name
         self.workFile = load_workbook(self.path + self.name)
         # 通过索引获取表格
@@ -31,23 +37,35 @@ class ExcelTools:
         """
         self.reload(self.name, self._sheetIndex)
 
-    # 获取表格名字
+
     def get_sheet_names(self):
+        """
+        获取表格名字
+        :return:
+        """
         return self.workFile.get_sheet_names()
 
-    # 获取表格形状
+
     def get_sheet_shape(self):
+        """
+        获取表格形状
+        :return:(行,列)
+        """
         return self.sheet.max_row, self.sheet.max_column
 
     def get_cell(self, row_index, col_index):
-        # 参数判断
+        """
+        获取点数据
+        :param row_index:
+        :param col_index:
+        :return:
+        """
         rg1 = self.__makeSlice__(slice(row_index, row_index - 1, 1), self.sheet.max_row)
         rg2 = self.__makeSlice__(slice(col_index, col_index - 1, 1), self.sheet.max_column)
         retLst = [item for item in
                   self.sheet.iter_rows(min_row=rg1.start, max_row=rg1.stop, min_col=rg2.start, max_col=rg2.stop)]
         return retLst[0][0]
 
-    # 重载操作符
     def __getitem__(self, index: slice or tuple or int) -> list or str:
         """
         重载操作符,实现批量获取
@@ -103,7 +121,7 @@ class ExcelTools:
 
     # 切片编辑
     def __makeSlice__(self, index: slice, length):
-        start = index.start if index.start is not None else 0
+        start = index.start if index.start is not None else 1
         stop = index.stop if index.stop is not None else length
         step = index.step if index.step is not None else 1
 
