@@ -67,9 +67,13 @@ class ImageTools:
         img = cv2.imdecode(nparr, 0)
         return img
 
-    # imgs [图片数, 高, 宽]
-    # imgs [高, 宽]
     def show_Grayscale(self, imgs: np.ndarray, labels: np.ndarray = None):
+        """
+        显示灰度图片
+        :param imgs: [图片数, 高, 宽] or [高, 宽]
+        :param labels:
+        :return:
+        """
         if len(imgs.shape) == 2:
             img_size = 1
             showImgs = [imgs]
@@ -105,6 +109,34 @@ class ImageTools:
             plt.axis("off")
         # 图层展示
         plt.show()
+
+    # cv2.INTER_NEAREST最近邻插值
+    # cv2.INTER_LINEAR 线性插值
+    # cv2.CV_INTER_AREA：区域插值
+    # cv2.INTER_CUBIC 三次样条插值
+    # cv2.INTER_LANCZOS4 Lanczos插值
+    def resize(self, picture, toWidth=0, toHigh=0, mode=cv2.INTER_LINEAR, isChannelPicture=False):
+        """
+        缩放图片
+        :param picture:
+        :param toWidth:
+        :param toHigh:
+        :param mode:
+        :param isChannelPicture:
+        :return:
+        """
+        toWidth = math.ceil(toWidth)
+        toHigh = math.ceil(toHigh)
+
+        if isChannelPicture:
+            changePicture = cv2.resize(picture, (toWidth, toHigh), mode)
+        else:
+            if isinstance(picture, list):
+                changePicture = np.array([cv2.resize(item, (toWidth, toHigh), mode) for item in picture])
+            else:
+                changePicture = cv2.resize(picture, (toWidth, toHigh), mode)
+
+        return changePicture
 
 
 image_tools = ImageTools()

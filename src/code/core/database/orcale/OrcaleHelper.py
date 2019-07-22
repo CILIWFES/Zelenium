@@ -1,5 +1,4 @@
 from ..base.DataBaseHelper import DataBaseHelper
-import cx_Oracle as orcale
 import os
 import time
 import datetime
@@ -12,6 +11,7 @@ class OrcaleHelper(DataBaseHelper):
         super().__init__(defualt_name)
 
     def _connect(self, url, userName, password, sid, connect_name, charset):
+        import cx_Oracle as orcale
         """
         建立数据库连接
         :param url:

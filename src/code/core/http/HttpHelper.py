@@ -109,6 +109,8 @@ class HttpHelper:
 
         if all_info:
             return response_data
+        elif response_data is None:
+            return None
         elif response_data["error"]:
             return None
         else:

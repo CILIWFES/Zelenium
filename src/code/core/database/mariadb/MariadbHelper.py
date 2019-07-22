@@ -1,5 +1,4 @@
 from ..base.DataBaseHelper import DataBaseHelper
-import pymysql
 import time
 import datetime
 
@@ -11,6 +10,8 @@ class MariadbHelper(DataBaseHelper):
         super().__init__(defualt_name)
 
     def _connect(self, url, userName, password, database, connect_name, charset):
+        import pymysql
+
         """
         建立数据库连接
         :param url:

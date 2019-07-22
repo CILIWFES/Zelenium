@@ -6,16 +6,39 @@ class AnnTools:
     module_dict = {}
 
     def discern_mp(self, base64_code):
+        """
+        神经网络案例
+        :param base64_code:
+        :return:
+        """
         from tools.image.ImageTools import image_tools
-        gray = image_tools.base64_to_gray(base64_code)
 
+        gray = image_tools.base64_to_gray(base64_code)
         gray = image_tools.binarization(gray, 130)
         gray = image_tools.noise_remove(gray, 4)
 
+        return self.discern_code(gray, 4, hight=40, width=100, model_name="mp4")
+
+    def discern_code(self, gray, codeNum, hight, width, model_name):
+        """
+        二维码调用神经网络
+        :param gray: 灰度图片
+        :param codeNum: 识别字数
+        :param hight: 图片标志高度
+        :param width: 图片标志宽度
+        :param model_name: 神经网络缓存名
+        :return:
+        """
+        from tools.image.ImageTools import image_tools
+
         gray = np.array(gray)
+        if gray.shape[0] != hight or gray.shape[1] != width:
+            gray = image_tools.resize(gray, toHigh=hight, toWidth=width)
+
         # 调用神经网络
         batch_size = 1
-        ret = self.prediction(np.asarray([[gray]]), (batch_size, 1, 40, 100), (batch_size, 4), name="mp4")
+        ret = self.prediction(np.asarray([[gray]]), (batch_size, 1, hight, width), (batch_size, codeNum),
+                              name=model_name)
         ret = np.argmax(ret, axis=1)
         msg = ""
         for i in ret:
