@@ -165,7 +165,7 @@ class GlobalConfiguration:
         :param name:
         :return:
         """
-        return self.getFilsPath([GT.ANN_PATH, GT.DISCERN_PATH])+name+"/"
+        return self.getFilsPath([GT.ANN_PATH, GT.DISCERN_PATH]) + name + "/"
 
     def create_report(self, style_no):
         """
@@ -179,3 +179,10 @@ class GlobalConfiguration:
             return True
         else:
             return False
+
+    def get_Zoom_Rate(self):
+        """
+        获取Windows的缩放比例,用于截图
+        :return:
+        """
+        return float(self.getConfig(GT.ZOOM_RATE))

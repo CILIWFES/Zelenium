@@ -85,6 +85,11 @@ class CaptureHelper:
             size = (_x, _y, _x + _w, _y + _h)
         else:
             size = tuple(js_ret)
+        # 通过缩放比例调整截图尺寸
+        rate = GF.get_Zoom_Rate()
+        if rate != 1:
+            size = (size[0] * rate, size[1] * rate, size[2] * rate, size[3] * rate)
+
         cropped = image.crop(size)
 
         return cropped

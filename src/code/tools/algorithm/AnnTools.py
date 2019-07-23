@@ -16,7 +16,6 @@ class AnnTools:
         gray = image_tools.base64_to_gray(base64_code)
         gray = image_tools.binarization(gray, 130)
         gray = image_tools.noise_remove(gray, 4)
-
         return self.discern_code(gray, 4, hight=40, width=100, model_name="mp4")
 
     def discern_code(self, gray, codeNum, hight, width, model_name):

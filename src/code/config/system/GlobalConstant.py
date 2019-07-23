@@ -50,6 +50,8 @@ class GlobalConstant:
     # 全局Section
     G_SECTION = "ALL"
 
+    # Windows下的缩放比例
+    ZOOM_RATE = "ZOOM_RATE"
     # ---------------------------报告生成--------------------------
 
     # 生成测试报告时打印信息
