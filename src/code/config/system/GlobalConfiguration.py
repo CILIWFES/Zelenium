@@ -135,8 +135,9 @@ class GlobalConfiguration:
         无头模式下的浏览器尺寸
         :return:
         """
-        tup = eval(self.getConfig(GT.HEADLESS_WINDOWS_SIZE, GT.G_SECTION))
-        return tup
+        import tkinter
+        return tkinter.Tk().maxsize()
+
 
     def show_print_in_console(self):
         """
