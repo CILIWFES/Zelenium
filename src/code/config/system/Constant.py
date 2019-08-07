@@ -2,7 +2,7 @@ import os
 import sys
 
 
-class GlobalConstant:
+class Constant:
     # ----------------------------系统配置------------------------
     # 系统默认编码
     DFAULT_CHARSET = sys.getdefaultencoding()
@@ -117,4 +117,4 @@ class GlobalConstant:
     ANN_PATH = "ANN_PATH"
 
 
-GT = GlobalConstant()
+GT = Constant()

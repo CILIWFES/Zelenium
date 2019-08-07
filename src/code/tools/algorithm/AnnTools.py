@@ -57,7 +57,7 @@ class AnnTools:
             if name in AnnTools.module_dict:
                 module = AnnTools.module_dict[name]
             else:
-                module = self.module_read(GF.getAnnDiscernPath(name), name, dataShape, labelShape=labelShape)
+                module = self.module_read(GF.ann_discern_path(name), name, dataShape, labelShape=labelShape)
                 AnnTools.module_dict[name] = module
 
         assert module is not None, "请检查神经网络配置文件"

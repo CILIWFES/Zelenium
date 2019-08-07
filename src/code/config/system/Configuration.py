@@ -1,17 +1,17 @@
 import configparser
-from .GlobalConstant import GT
+from .Constant import GT
 
 
-class GlobalConfiguration:
+class Configuration:
 
     def __init__(self):
         self.__GConfig = configparser.ConfigParser()
         self.__GConfig.read(GT.SYS_GLO_CONFIG_PATH, encoding='utf-8')
 
-    def getConfig(self, name, section=GT.G_SECTION):
+    def get_config(self, name, section=GT.G_SECTION):
         return self.__GConfig.get(section, name)
 
-    def getFilsPath(self, names, section=GT.G_SECTION):
+    def get_fils_path(self, names, section=GT.G_SECTION):
         """
         根据传入类型,拼接文件路径
         :param names:
@@ -20,111 +20,111 @@ class GlobalConfiguration:
         """
         path = GT.SYS_FILES_PATH
         if type(names) is str:
-            path += self.getConfig(names, section)
+            path += self.get_config(names, section)
             return path
         for item in names:
-            path += self.getConfig(item, section)
+            path += self.get_config(item, section)
         return path
 
-    def getChromPath(self):
+    def chrom_path(self):
         """
         获取谷歌浏览器路径
         :return:
         """
-        if self.getConfig(GT.EMBEDDED_CHROM) == 'True':
-            return self.getFilsPath([GT.SYS_APPLICATION_PATH, GT.SYS_CHROM_DEFAULT_PATH])
+        if self.get_config(GT.EMBEDDED_CHROM) == 'True':
+            return self.get_fils_path([GT.SYS_APPLICATION_PATH, GT.SYS_CHROM_DEFAULT_PATH])
         else:
-            return self.getConfig(GT.SYS_CHROM_PATH)
+            return self.get_config(GT.SYS_CHROM_PATH)
 
-    def getProxyPath(self):
+    def proxy_path(self):
         """
         获取代理应用路径
         :return:
         """
-        return self.getFilsPath([GT.SYS_APPLICATION_PATH, GT.SYS_PROXY_PATH])
+        return self.get_fils_path([GT.SYS_APPLICATION_PATH, GT.SYS_PROXY_PATH])
 
-    def getProxyPort(self):
+    def proxy_port(self):
         """
         获取代理端口号
         :return:
         """
-        return int(self.getConfig(GT.SYS_PROXY_PORT))
+        return int(self.get_config(GT.SYS_PROXY_PORT))
 
-    def getHtmlPath(self, job_name):
+    def html_path(self, job_name):
         """
         拼接html保存文件夹
         :param job_name:  工作名称
         :return:
         """
-        return GT.SYS_RESULT_FOLDER + job_name + "/" + self.getConfig(GT.HTML_PATH, GT.G_SECTION)
+        return GT.SYS_RESULT_FOLDER + job_name + "/" + self.get_config(GT.HTML_PATH, GT.G_SECTION)
 
-    def getLogPath(self, job_name):
+    def log_path(self, job_name):
         """
         拼接日志保存文件夹
         :param job_name:  工作名称
         :return:
         """
-        return GT.SYS_RESULT_FOLDER + job_name + "/" + self.getConfig(GT.LOGGING_PATH, GT.G_SECTION)
+        return GT.SYS_RESULT_FOLDER + job_name + "/" + self.get_config(GT.LOGGING_PATH, GT.G_SECTION)
 
-    def getHttpPath(self, job_name):
+    def http_path(self, job_name):
         """
         拼接接口代码保存文件夹
         :param job_name:  工作名称
         :return:
         """
-        return GT.SYS_RESULT_FOLDER + job_name + "/" + self.getConfig(GT.HTTP_PATH, GT.G_SECTION)
+        return GT.SYS_RESULT_FOLDER + job_name + "/" + self.get_config(GT.HTTP_PATH, GT.G_SECTION)
 
-    def getPicturePath(self, job_name):
+    def picture_path(self, job_name):
         """
         拼接图片保存文件夹
         :param job_name:  工作名称
         :return:
         """
-        return GT.SYS_RESULT_FOLDER + job_name + "/" + self.getConfig(GT.PICTURE_PATH, GT.G_SECTION)
+        return GT.SYS_RESULT_FOLDER + job_name + "/" + self.get_config(GT.PICTURE_PATH, GT.G_SECTION)
 
-    def getViedoPath(self, job_name):
+    def viedo_path(self, job_name):
         """
         拼接视频保存文件夹
         :param job_name:  工作名称
         :return:
         """
-        return GT.SYS_RESULT_FOLDER + job_name + "/" + self.getConfig(GT.VIEDO_PATH, GT.G_SECTION)
+        return GT.SYS_RESULT_FOLDER + job_name + "/" + self.get_config(GT.VIEDO_PATH, GT.G_SECTION)
 
-    def getGifPath(self, job_name):
+    def gif_path(self, job_name):
         """
         拼接gif保存文件夹
         :param job_name:  工作名称
         :return:
         """
-        return GT.SYS_RESULT_FOLDER + job_name + "/" + self.getConfig(GT.GIF_PATH, GT.G_SECTION)
+        return GT.SYS_RESULT_FOLDER + job_name + "/" + self.get_config(GT.GIF_PATH, GT.G_SECTION)
 
-    def getExcelPath(self):
+    def excel_path(self):
         """
         获取excel模板基础路径
         :return:
         """
-        return self.getFilsPath([GT.TEMPLATE_PATH, GT.TEMPLATE_EXCEL_PATH], GT.G_SECTION)
+        return self.get_fils_path([GT.TEMPLATE_PATH, GT.TEMPLATE_EXCEL_PATH], GT.G_SECTION)
 
-    def getCachePath(self):
+    def cache_path(self):
         """
         获取缓存路径
         :return:
         """
-        return self.getFilsPath([GT.CACHE_PATH], GT.G_SECTION)
+        return self.get_fils_path([GT.CACHE_PATH], GT.G_SECTION)
 
     def auto_fps(self):
         """
         默认帧率
         :return:
         """
-        return int(self.getConfig(GT.AUTO_FPS, GT.G_SECTION))
+        return int(self.get_config(GT.AUTO_FPS, GT.G_SECTION))
 
     def auto_size(self):
         """
         生成视频或gif的默认尺寸(宽,高,是否开启)
         :return:
         """
-        tup = eval(self.getConfig(GT.AUTO_SIZE, GT.G_SECTION))
+        tup = eval(self.get_config(GT.AUTO_SIZE, GT.G_SECTION))
         if tup[-1]:
             return tup[:-1]
         else:
@@ -144,29 +144,29 @@ class GlobalConfiguration:
         生成测试报告时打印信息
         :return:
         """
-        return self.getConfig(GT.SHOW_PRINT_IN_CONSOLE) == 'True'
+        return self.get_config(GT.SHOW_PRINT_IN_CONSOLE) == 'True'
 
     def show_error_traceback(self):
         """
         显示报错信息
         :return:
         """
-        return self.getConfig(GT.SHOW_ERROR_TRACEBACK) == 'True'
+        return self.get_config(GT.SHOW_ERROR_TRACEBACK) == 'True'
 
     def report_execute_interval(self):
         """
         显示报错信息
         :return:
         """
-        return float(self.getConfig(GT.REPORT_EXECUTE_INTERVAL))
+        return float(self.get_config(GT.REPORT_EXECUTE_INTERVAL))
 
-    def getAnnDiscernPath(self, name):
+    def ann_discern_path(self, name):
         """
         获取验证码识别文件夹
         :param name:
         :return:
         """
-        return self.getFilsPath([GT.ANN_PATH, GT.DISCERN_PATH]) + name + "/"
+        return self.get_fils_path([GT.ANN_PATH, GT.DISCERN_PATH]) + name + "/"
 
     def create_report(self, style_no):
         """
@@ -175,15 +175,15 @@ class GlobalConfiguration:
         :return:
         """
         style_no = int(style_no)
-        lst = eval(self.getConfig(GT.CREATE_REPORT_STYLE))
+        lst = eval(self.get_config(GT.CREATE_REPORT_STYLE))
         if style_no in lst:
             return True
         else:
             return False
 
-    def get_Zoom_Rate(self):
+    def zoom_rate(self):
         """
         获取Windows的缩放比例,用于截图
         :return:
         """
-        return float(self.getConfig(GT.ZOOM_RATE))
+        return float(self.get_config(GT.ZOOM_RATE))

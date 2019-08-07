@@ -25,7 +25,7 @@ class LogHelper(logging.Logger):
         写入日志文件
         :return:
         """
-        path = GF.getLogPath(self._job_name)
+        path = GF.log_path(self._job_name)
 
         file_tools.create_dir(path)
         file_handler = logging.FileHandler(path + self._file_name, encoding='utf-8')

@@ -35,7 +35,7 @@ class DriverHelper(ChromiumDriver):
         options = self.__prepare_befor(options, headless, mute, image)
 
         """调用谷歌浏览器(父类)初始化,获取句柄"""
-        super().__init__(GF.getChromPath(), options=options)
+        super().__init__(GF.chrom_path(), options=options)
 
         """---后处理---"""
 

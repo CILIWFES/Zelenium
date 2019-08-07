@@ -280,7 +280,7 @@ class TestStarter:
         :param report_title:
         :return:
         """
-        path = GF.getHtmlPath(self._job_name)
+        path = GF.html_path(self._job_name)
 
         if not self.case_dirs:
             raise Exception("请先调用add_case_dir方法，添加测试用例文件夹")

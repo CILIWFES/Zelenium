@@ -132,7 +132,7 @@ class ProxyHelper:
             return True
 
         if cycle is None:
-            cycle = float(GF.getConfig(GT.PROXY_CYCLE))
+            cycle = float(GF.get_config(GT.PROXY_CYCLE))
 
         self._proxyRunner = ProxyRunner(self._scheduler, jump_rule, cycle)
 

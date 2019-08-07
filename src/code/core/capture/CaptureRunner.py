@@ -20,7 +20,7 @@ class CaptureRunner(threading.Thread):
         self._sys_logger = scheduler.find_system_logger()
         self._fileHelper = scheduler.find_system_fileHelper()
         self._captureHelper = scheduler.get_CaptureHelper()
-        self.path = GF.getPicturePath(self._job_name)
+        self.path = GF.picture_path(self._job_name)
 
     def run(self) -> None:
         print("截图线程启动,周期", self._cycle, "秒")

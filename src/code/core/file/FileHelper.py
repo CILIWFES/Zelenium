@@ -21,13 +21,13 @@ class FileHelper:
         # 调度中心
         self._scheduler = scheduler
         # 文件线程
-        maxsize = int(GF.getConfig(GT.FILE_QUEUE_SIZE)) if maxsize is None else maxsize
+        maxsize = int(GF.get_config(GT.FILE_QUEUE_SIZE)) if maxsize is None else maxsize
         # 工作队列
         self._working_queue = queue.Queue(maxsize)
         # 周期
-        self._cycle = float(GF.getConfig(GT.FILERUNNER_CYCLE)) if cycle is None else cycle
+        self._cycle = float(GF.get_config(GT.FILERUNNER_CYCLE)) if cycle is None else cycle
 
-        self._runner_size = int(GF.getConfig(GT.FILERUNNER_COUNT)) if runner_size is None else runner_size
+        self._runner_size = int(GF.get_config(GT.FILERUNNER_COUNT)) if runner_size is None else runner_size
 
     def pop_queue(self):
         """

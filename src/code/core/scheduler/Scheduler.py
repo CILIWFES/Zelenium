@@ -88,11 +88,11 @@ class Scheduler:
         """
         assert self._proxyHelper is None, "代理已开启"
         # 代理端口,若未指定,获取默认端口
-        proxy_port = GF.getProxyPort() if proxy_port is None else proxy_port
+        proxy_port = GF.proxy_port() if proxy_port is None else proxy_port
 
         # 启动代理浏览器
-        server = Server(GF.getProxyPath(), {'port': proxy_port})
-        server.start({'log_path': GF.getCachePath()})
+        server = Server(GF.proxy_path(), {'port': proxy_port})
+        server.start({'log_path': GF.cache_path()})
         proxy = server.create_proxy()
 
         # 开启har监听

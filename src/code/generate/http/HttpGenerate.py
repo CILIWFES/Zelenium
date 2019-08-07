@@ -7,7 +7,7 @@ class HttpGenerate:
     def __init__(self, job_name, suffix='_proxy.txt'):
         self._job_name = job_name
         self._file_name = job_name + suffix
-        self._path = GF.getLogPath(self._job_name)
+        self._path = GF.log_path(self._job_name)
         self._package = []
         self.__decode()
         self.msg_position = LogHelper.msg_position

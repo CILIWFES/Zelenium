@@ -5,7 +5,7 @@ from openpyxl import *
 class ExcelTools:
 
     def __init__(self, name, sheetDefault=0):
-        self.path = GF.getExcelPath()
+        self.path = GF.excel_path()
         self.name = None
         self.workFile = None
         self.sheet = None

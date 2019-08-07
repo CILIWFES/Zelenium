@@ -34,7 +34,7 @@ class CaptureHelper:
         :return:
         """
         image = self.get_portion_image(node)
-        image.show(GF.getCachePath() + str(int(time.clock())))
+        image.show(GF.cache_path() + str(int(time.clock())))
         return True
 
     def get_portion_image_base64(self, node):
@@ -86,7 +86,7 @@ class CaptureHelper:
         else:
             size = tuple(js_ret)
         # 通过缩放比例调整截图尺寸
-        rate = GF.get_Zoom_Rate()
+        rate = GF.zoom_rate()
         if rate != 1:
             size = (size[0] * rate, size[1] * rate, size[2] * rate, size[3] * rate)
 
@@ -106,8 +106,8 @@ class CaptureHelper:
         初始化文件夹
         :return:
         """
-        file_tools.create_dir(GF.getPicturePath(self._job_name))
-        file_tools.delete_dir(GF.getPicturePath(self._job_name))
+        file_tools.create_dir(GF.picture_path(self._job_name))
+        file_tools.delete_dir(GF.picture_path(self._job_name))
 
     def runner_start(self, cycle=None):
         """
@@ -122,7 +122,7 @@ class CaptureHelper:
         self._scheduler.init_system_fileHelper()
 
         if cycle is None:
-            cycle = float(GF.getConfig(GT.SCREENSHOT_CYCLE))
+            cycle = float(GF.get_config(GT.SCREENSHOT_CYCLE))
 
         self._captureRunner = CaptureRunner(self._scheduler, cycle)
 

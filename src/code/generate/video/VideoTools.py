@@ -17,11 +17,11 @@ class VideoTools:
         :return:
         """
 
-        path = GF.getGifPath(job_name)
+        path = GF.gif_path(job_name)
         file_tools.create_dir(path)
         file_tools.delete_dir(path)
 
-        search_path = GF.getPicturePath(job_name)
+        search_path = GF.picture_path(job_name)
         pictures = file_tools.auto_search(search_path)
 
         if size is None:
@@ -60,11 +60,11 @@ class VideoTools:
         :return:
         """
 
-        path = GF.getViedoPath(job_name)
+        path = GF.viedo_path(job_name)
         file_tools.create_dir(path)
         file_tools.delete_dir(path)
 
-        search_path = GF.getPicturePath(job_name)
+        search_path = GF.picture_path(job_name)
         pictures = file_tools.auto_search(search_path)
         self.__sort_picture(pictures)
         if size is None:
