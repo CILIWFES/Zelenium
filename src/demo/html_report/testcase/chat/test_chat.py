@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # -*- coding: UTF-8 -*-
-from src.code import *
+from src.module import *
 
 
 class TestChat(unittest.TestCase):
