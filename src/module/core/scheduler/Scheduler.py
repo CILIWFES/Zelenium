@@ -268,7 +268,7 @@ class Scheduler:
         if self._sys_logger is not None:
             return self._sys_logger
         # 启动日志助手
-        self._sys_logger = LogHelper(self._job_name, suffix='_system.txt')
+        self._sys_logger = LogHelper(self._job_name, file_name='system.txt')
         # 添加文件夹记录
         self._sys_logger.add_FileHandler()
         return self._sys_logger
@@ -280,7 +280,7 @@ class Scheduler:
         if self._proxy_logger is not None:
             return self._proxy_logger
 
-        self._proxy_logger = LogHelper(self._job_name, suffix='_proxy.txt')
+        self._proxy_logger = LogHelper(self._job_name, file_name='proxy.txt')
         # 添加代理记录
         self._proxy_logger.add_FileHandler()
         return self._proxy_logger

@@ -6,14 +6,14 @@ from src.module.tools import file_tools
 class LogHelper(logging.Logger):
     msg_position = '-msg:'
 
-    def __init__(self, job_name, suffix='.txt'):
+    def __init__(self, job_name, file_name):
         """
         日志文件类
         :param job_name:
         :param suffix:
         """
         self._job_name = job_name
-        self._file_name = job_name + suffix
+        self._file_name = file_name
         super().__init__(job_name)
 
         self.setLevel(logging.INFO)

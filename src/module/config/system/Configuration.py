@@ -117,7 +117,7 @@ class Configuration:
         获取默认保存路径
         :return:
         """
-        return GT.SYS_RESULT_FOLDER + job_name + "/" + self.get_fils_path([GT.DEFAULT_FILE_PATH], GT.G_SECTION)
+        return GT.SYS_RESULT_FOLDER + job_name + "/" + self.get_config(GT.DEFAULT_FILE_PATH, GT.G_SECTION)
 
     def auto_fps(self):
         """
